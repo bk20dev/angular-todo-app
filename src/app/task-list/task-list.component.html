@@ -1,1 +1,46 @@
-<p>task-list works!</p>
+<h1>Tasks</h1>
+
+<h2>Pending tasks</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of pendingTasks; let index = index">
+            <td>{{ index + 1 }}</td>
+            <td>{{ task.title }}</td>
+            <td>
+                <button>Mark completed</button>
+                <button>Edit</button>
+                <button>Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Completed tasks</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of completedTasks; let index = index">
+            <td>{{ index + 1 }}</td>
+            <td>{{ task.title }}</td>
+            <td>
+                <button>Mark pending</button>
+                <button>Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
