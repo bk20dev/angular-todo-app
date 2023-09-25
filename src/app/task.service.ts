@@ -30,6 +30,20 @@ export class TaskService {
     this.tasks.next([...this.taskCollection.values()]);
   }
 
+  getTask(id: string): Task | undefined {
+    return this.taskCollection.get(id);
+  }
+
+  createTask(from: Omit<Task, 'id'>): Task {
+    const id = Date.now().toString();
+    const task: Task = { ...from, id };
+
+    this.taskCollection.set(task.id, task);
+    this.emitTasks();
+
+    return task;
+  }
+
   updateTask(task: Task): void {
     this.taskCollection.set(task.id, task);
     this.emitTasks();

@@ -5,6 +5,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 
 const routes: Routes = [
   { path: '', component: TaskListComponent },
+  { path: 'new', component: TaskFormComponent },
   { path: ':id/edit', component: TaskFormComponent },
 ];
 
