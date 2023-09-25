@@ -1,3 +1,9 @@
+<h1>{{ formTitle }}</h1>
+
 <label for="task-title">Title</label>
 <input id="task-title" type="text" placeholder="Take out the trash" [(ngModel)]="taskTitle" />
+
+<br/><br/>
+
+<a routerLink="">Cancel</a>
 <button (click)="submit()">Submit</button>

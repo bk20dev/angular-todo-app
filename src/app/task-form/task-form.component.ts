@@ -9,6 +9,8 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-form.component.css'],
 })
 export class TaskFormComponent implements OnInit {
+  formTitle: string = 'New task';
+
   private task: Task | undefined;
   taskTitle: string = '';
 
@@ -32,11 +34,13 @@ export class TaskFormComponent implements OnInit {
 
   private loadTask(task: Task): void {
     this.taskTitle = task.title;
+    this.formTitle = 'Edit task';
   }
 
   private clear(): void {
     this.task = undefined;
     this.taskTitle = '';
+    this.formTitle = 'New task';
   }
 
   submit(): void {
