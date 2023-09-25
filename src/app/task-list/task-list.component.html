@@ -16,7 +16,7 @@
             <td>{{ task.title }}</td>
             <td>
                 <button (click)="markTaskCompleted(task)">Mark completed</button>
-                <button>Edit</button>
+                <button [routerLink]="[task.id, 'edit']">Edit</button>
                 <button (click)="deleteTask(task)">Delete</button>
             </td>
         </tr>
