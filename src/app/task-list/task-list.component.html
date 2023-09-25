@@ -15,9 +15,9 @@
             <td>{{ index + 1 }}</td>
             <td>{{ task.title }}</td>
             <td>
-                <button>Mark completed</button>
+                <button (click)="markTaskCompleted(task)">Mark completed</button>
                 <button>Edit</button>
-                <button>Delete</button>
+                <button (click)="deleteTask(task)">Delete</button>
             </td>
         </tr>
     </tbody>
@@ -38,8 +38,8 @@
             <td>{{ index + 1 }}</td>
             <td>{{ task.title }}</td>
             <td>
-                <button>Mark pending</button>
-                <button>Delete</button>
+                <button (click)="markTaskPending(task)">Mark pending</button>
+                <button (click)="deleteTask(task)">Delete</button>
             </td>
         </tr>
     </tbody>

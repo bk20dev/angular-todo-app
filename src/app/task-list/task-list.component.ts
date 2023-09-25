@@ -17,4 +17,16 @@ export class TaskListComponent {
       this.completedTasks = tasks.filter((task) => task.status === 'completed');
     });
   }
+
+  markTaskCompleted(task: Task): void {
+    this.taskService.updateTaskStatus(task, 'completed');
+  }
+
+  markTaskPending(task: Task): void {
+    this.taskService.updateTaskStatus(task, 'pending');
+  }
+
+  deleteTask(task: Task): void {
+    this.taskService.deleteTask(task);
+  }
 }

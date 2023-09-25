@@ -9,12 +9,38 @@ const initialTasks: Task[] = [
   { id: 'd', status: 'completed', title: 'D-p' },
   { id: 'e', status: 'completed', title: 'E-p' },
 ];
+// prettier-ignore
+const initialTasksMap: [string, Task][] =
+  initialTasks.map((task) => [task.id, task]);
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  tasks: BehaviorSubject<Task[]> = new BehaviorSubject<Task[]>(initialTasks);
+  private readonly taskCollection: Map<string, Task>;
+  tasks: BehaviorSubject<Task[]>;
 
-  constructor() {}
+  constructor() {
+    this.taskCollection = new Map(initialTasksMap);
+    this.tasks = new BehaviorSubject<Task[]>([]);
+    this.emitTasks();
+  }
+
+  private emitTasks(): void {
+    this.tasks.next([...this.taskCollection.values()]);
+  }
+
+  updateTask(task: Task): void {
+    this.taskCollection.set(task.id, task);
+    this.emitTasks();
+  }
+
+  updateTaskStatus(task: Task, status: Task['status']): void {
+    this.updateTask({ ...task, status });
+  }
+
+  deleteTask(task: Task): void {
+    this.taskCollection.delete(task.id);
+    this.emitTasks();
+  }
 }
