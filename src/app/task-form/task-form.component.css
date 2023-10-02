@@ -1,0 +1,16 @@
+:host {
+  padding: 64px 32px;
+  appearance: auto;
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 24px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  width: max-content;
+}

@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.button {
+  background-color: hsl(256, 34%, 88%);
+  padding: 8px;
+  border-radius: 48px;
+  display: flex;
+  align-items: center;
+  appearance: button;
+  border: none;
+  font: inherit;
+}
+
+.button.text {
+  background-color: transparent;
+}
+
+a.button {
+  text-decoration: none;
+  color: inherit;
+}
